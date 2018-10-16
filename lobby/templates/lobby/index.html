@@ -1,0 +1,11 @@
+<html>
+<body>
+<div x="-200" y="-300" l="{% widthratio game_sessions|length|add:'1' 1 600 %}" w="600" h="400" floor="10">
+    {% for session in game_sessions %}
+        <portal x="{% widthratio forloop.counter|add:'1' 1 300 %}" y="0" z="0" href="{{ session.GameSessionId }}" />
+        <text x="{% widthratio forloop.counter|add:'1' 1 300 %}" y="100" z="200" size="30">{{ session.CurrentPlayerSessionCount }} / {{ session.MaximumPlayerSessionCount }}</text>
+        <text x="{% widthratio forloop.counter|add:'1' 1 300 %}" y="100" z="230" size="60">{{ session.GameProperties.0.Value }}</text>
+    {% endfor %}
+</div>
+</body>
+</html>
